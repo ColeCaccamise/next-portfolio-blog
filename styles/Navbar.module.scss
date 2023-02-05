@@ -1,0 +1,27 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+
+	&__logo {
+		justify-self: flex-start;
+
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+
+	ul {
+		display: flex;
+		list-style: none;
+	}
+
+	li {
+		padding-left: 1rem;
+
+		a:hover {
+			opacity: 0.7;
+		}
+	}
+}
