@@ -18,9 +18,7 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				<h1 className={styles.title}>
-					Welcome back, <a href='https://nextjs.org'>Cole!</a>
-				</h1>
+				<h1 className={styles.title}>This site is under construction.</h1>
 
 				<div>
 					<p>in here</p>
