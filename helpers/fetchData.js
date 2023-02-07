@@ -14,8 +14,14 @@ const fetchData = async (query, { variables = {} }) => {
 
 	const json = await res.json();
 
+	console.log(json);
+
 	if (json.errors) {
 		throw new Error(json.errors);
+	}
+
+	if (json == undefined) {
+		return null;
 	}
 
 	return json;

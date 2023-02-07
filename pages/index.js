@@ -3,13 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Layout.module.scss';
 import { useQuery } from 'react-query';
-import { getPosts } from '../queries/queries';
+import { getPosts } from '../queries/getData';
 
 export default function Home() {
-	const { data: blog, isSuccess } = useQuery(
-		'blog',
-		async () => await getPosts()
-	);
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -28,12 +24,6 @@ export default function Home() {
 
 				<div>
 					<p>in here</p>
-					{isSuccess &&
-						blog.map((post) => {
-							<Link passHref key={post.id}>
-								{post.title}
-							</Link>;
-						})}
 
 					<p>exiting</p>
 				</div>
