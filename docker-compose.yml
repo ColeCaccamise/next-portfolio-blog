@@ -22,7 +22,7 @@ services:
     container_name: directus
     image: directus/directus:latest
     ports:
-      - 8055:8055
+      - 8080:8080
     volumes:
       # By default, uploads are stored in /directus/uploads
       # Always make sure your volumes matches the storage root when using
@@ -57,7 +57,7 @@ services:
       ADMIN_EMAIL: 'cole@caccamedia.com'
       ADMIN_PASSWORD: 'login'
 
-      PUBLIC_URL: 'https://colecaccamise.com'
+      PUBLIC_URL: 'https://colecaccamise.com/admin'
 
 networks:
   directus:
