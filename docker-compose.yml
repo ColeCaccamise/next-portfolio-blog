@@ -1,63 +1,18 @@
 version: '3'
 services:
-  database:
-    container_name: database
-    image: postgis/postgis:13-master
-    volumes:
-      - ./data/database:/var/lib/postgresql/data
-    networks:
-      - directus
-    environment:
-      POSTGRES_USER: 'directus'
-      POSTGRES_PASSWORD: 'directus'
-      POSTGRES_DB: 'directus'
-
-  cache:
-    container_name: cache
-    image: redis:6
-    networks:
-      - directus
-
   directus:
-    container_name: directus
     image: directus/directus:latest
     ports:
-      - 8080:8080
+      - 8055:8055
     volumes:
-      # By default, uploads are stored in /directus/uploads
-      # Always make sure your volumes matches the storage root when using
-      # local driver
       - ./uploads:/directus/uploads
-      # Make sure to also mount the volume when using SQLite
-      # - ./database:/directus/database
-      # If you want to load extensions from the host
-      # - ./extensions:/directus/extensions
-    networks:
-      - directus
-    depends_on:
-      - cache
-      - database
+      - ./database:/directus/database
     environment:
       KEY: '255d861b-5ea1-5996-9aa3-922530ec40b1'
       SECRET: '6116487b-cda1-52c2-b5b5-c8022c45e263'
 
-      CONFIG_START: '.env'
-
       DB_CLIENT: 'sqlite3'
-      DB_HOST: 'database'
-      DB_PORT: '5432'
-      DB_DATABASE: 'directus'
-      DB_USER: 'directus'
-      DB_PASSWORD: 'directus'
-
-      CACHE_ENABLED: 'true'
-      CACHE_STORE: 'redis'
-      CACHE_REDIS: 'redis://cache:6379'
+      DB_FILENAME: './data.db'
 
       ADMIN_EMAIL: 'cole@caccamedia.com'
-      ADMIN_PASSWORD: 'login'
-
-      PUBLIC_URL: 'https://colecaccamise.com/admin'
-
-networks:
-  directus:
+      ADMIN_PASSWORD: 'directus!'
