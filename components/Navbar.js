@@ -5,26 +5,31 @@ const Navbar = () => {
 	return (
 		<div className='container'>
 			<nav className={ns.navbar}>
-				<Link href='/' className={`${ns.navbar__logo}`}>
-					Cole Caccamise
-				</Link>
+				<div>
+					<Link href='/' className={`${ns.navbar__logo}`}>
+						Cole Caccamise
+					</Link>
 
-				<ul>
-					<li>
-						<Link href='/blog'>Blog</Link>
-					</li>
-					<li>
-						<Link href='/links'>Links</Link>
-					</li>
+					<ul>
+						<li>
+							<Link href='/links'>Links</Link>
+						</li>
+						<li>
+							<Link href='/store'>Wallpapers</Link>
+						</li>
+						<li>
+							<Link href='/blog'>Blog</Link>
+						</li>
+					</ul>
+				</div>
 
-					<li>
-						<Link href='/store'>Store</Link>
-					</li>
-
-					<li>
-						<Link href='/contact'>Contact</Link>
-					</li>
-				</ul>
+				<div>
+					<ul>
+						<li>
+							<Link href='/contact'>Contact</Link>
+						</li>
+					</ul>
+				</div>
 			</nav>
 		</div>
 	);

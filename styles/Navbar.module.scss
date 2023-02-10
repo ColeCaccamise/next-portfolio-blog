@@ -4,8 +4,13 @@
 	justify-content: space-between;
 	width: 100%;
 
+	div {
+		display: flex;
+		align-items: center;
+	}
+
 	&__logo {
-		justify-self: flex-start;
+		// justify-self: flex-start;
 
 		&:hover {
 			opacity: 0.9;
@@ -13,12 +18,14 @@
 	}
 
 	ul {
+		padding: 0 1rem;
 		display: flex;
+
 		list-style: none;
 	}
 
 	li {
-		padding-left: 1rem;
+		padding-right: 0.6rem;
 
 		a:hover {
 			opacity: 0.7;
